@@ -2,7 +2,11 @@
 <html lang="en" ng-app="bitwiseBooks">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Bitwise Books</title>
+
+
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -21,6 +25,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+
+
+
                 <li class="active"><a ui-sref="bitwiseBooks.books">Books <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
@@ -67,5 +74,25 @@
 
 
 
+<!--basic jquery / bootstrap-->
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--angular-->
+<script src="../node_modules/angular/angular.min.js"></script>
+<!-- Angular dependencies we're using -->
+<!--Ui-router handles our states-->
+<script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!--UI-bootstrap provides simple directives to use with bootstrap, things like modals reqire this-->
+<script src="../node_modules/angular-ui-bootstrap/ui-bootstrap.min.js" ></script>
+<!-- templates for ui bottstrap -->
+<script src="../node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!-- not angular specific, super easy to use sorting, filtering, and finding array data-->
+<script src="../bower_components/lodash/lodash.min.js"></script>
+<!-- our main app module-->
+<script src="bitwiseBooks.module.js"></script>
+<!-- Home Files -->
+<script src="home/home.controller.js"></script>
+<!-- our books stuff-->
+<script src="books/books.controller.js"></script>
 </body>
 </html>
