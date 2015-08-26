@@ -16,7 +16,12 @@
         // where we pass in the other state's templates
         $stateProvider.state('bitwiseBooks',{
             abstract:true,
-            template: '<ui-view>'
+            template: '<ui-view>',
+            resolve: {
+                bootstrap: function(BootstrapService){
+                    return BootstrapService.bootstrap();
+                }
+            }
         })//out home state, we give it a name based of the parent state('bitwiseBooks'), set what the url will be,
             //what controller we use for this view, and finally the location of the html file we use for this state
             .state('bitwiseBooks.home',{
