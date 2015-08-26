@@ -7,7 +7,6 @@
     app.service('BootstrapService', function($http, BooksService){
         function bootstrap(){
             return $http.get('../books.json').then(function(res){
-                debugger;
                var data = res.data;
                BooksService.bootstrap(data);
             });

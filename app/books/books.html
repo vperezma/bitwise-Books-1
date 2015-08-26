@@ -1,5 +1,15 @@
 <ui-view>
-    <div class="row" ng-repeat="book in books">
-        {{ book }}
+    <h2>Books</h2>
+    <div class="row books-row" ng-repeat="book in books">
+        <div class="col-md-4">
+            <img src="{{ book.picture }}" class="img-responsive" alt="{{ book.title }}"/>
+        </div>
+        <div class="col-md-8">
+            <h3><a ui-sref="bitwiseBooks.books.single({ bookId: book.id })">{{ book.title }}</a></h3>
+            <h4>{{ book.author }}</h4>
+            <p>{{ book.year }}</p>
+            <p>Price: {{ book.cost }}</p>
+            <p>{{ book.about }}</p>
+        </div>
     </div>
 </ui-view>

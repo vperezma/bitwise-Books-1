@@ -7,7 +7,5 @@
 
     app.controller('BooksController',function($scope, BooksService){
         $scope.books = BooksService.books;
-
-        console.log($scope.books);
     })
 }());

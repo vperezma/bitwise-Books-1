@@ -34,6 +34,10 @@
                 url:'/books',
                 controller: 'BooksController',
                 templateUrl: 'books/books.html'
+            }).state('bitwiseBooks.books.single',{
+                url: '/:bookId',
+                controller: 'BookController',
+                templateUrl: 'books/book.html'
             });
 
         $urlRouterProvider.otherwise('/');

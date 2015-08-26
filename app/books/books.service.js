@@ -12,9 +12,14 @@
             });
         }
 
+        function find(book_id){
+          return _.find(books, { id: book_id });
+        }
+
        return {
-           books: books,
-           bootstrap: bootstrap
+         find: find,
+         books: books,
+         bootstrap: bootstrap
        }
     });
 }());
