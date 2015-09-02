@@ -14,15 +14,12 @@
         //we set the states name to bitwiseBooks, all states that are child of it will use bitwiseBooks.newStateName
         //the template is what is displayed in the browser, in this case the <ui-view> will be used as the location
         // where we pass in the other state's templates
+
         $stateProvider.state('bitwiseBooks',{
             abstract:true,
-            template: '<ui-view>',
-            resolve: {
-                bootstrap: function(BootstrapService){
-                    return BootstrapService.bootstrap();
-                }
-            }
-        })//out home state, we give it a name based of the parent state('bitwiseBooks'), set what the url will be,
+            template: '<ui-view>'
+        })
+        //out home state, we give it a name based of the parent state('bitwiseBooks'), set what the url will be,
             //what controller we use for this view, and finally the location of the html file we use for this state
             .state('bitwiseBooks.home',{
                 url:'/',
@@ -33,14 +30,28 @@
             .state('bitwiseBooks.books',{
                 url:'/books',
                 controller: 'BooksController',
-                templateUrl: 'books/books.html'
+                controllerAs: 'books',
+                templateUrl: 'books/books.html',
+                resolve: {
+                  books: function(BooksService){
+                    return BooksService.getBooks();
+                  },
+                  authors: function(AuthorsService){
+                    return AuthorsService.getAuthors();
+                  }
+                }
             }).state('bitwiseBooks.books.single',{
                 url: '/:bookId',
                 controller: 'BookController',
-                templateUrl: 'books/book.html'
+                controllerAs: 'book',
+                templateUrl: 'books/book.html',
+                resolve: {
+                  book: function(books, BooksService, $stateParams) {
+                    return BooksService.find($stateParams.bookId);
+                  }
+                }
             });
 
         $urlRouterProvider.otherwise('/');
     })
-
 }());

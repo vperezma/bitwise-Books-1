@@ -3,8 +3,8 @@
 
   var app = angular.module('bitwiseBooks');
 
-  app.controller('BookController', function($scope, $stateParams, BooksService){
-    $scope.book = BooksService.find($stateParams.bookId);
-
+  app.controller('BookController', function(book){
+      var vm = this;
+          vm.book = book;
   });
 }());
